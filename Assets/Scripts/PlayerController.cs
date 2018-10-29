@@ -4,28 +4,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-public class Player : MonoBehaviour {
+public class PlayerController : MonoBehaviour {
 
-    [Tooltip("In ms^-1")] [SerializeField] float speed = 20f;
+    [Header("General")]
+    [Tooltip("In ms^-1")] [SerializeField] float controlSpeed = 20f;
     [Tooltip("In m")] [SerializeField] float xRange = 8f;
     [Tooltip("In m")] [SerializeField] float yRange = 4.5f;
 
+    [Header("Screen-position Based")]
     [SerializeField] float positionPitchFactor = -5f;
-    [SerializeField] float controlPitchFactor = -20f;
     [SerializeField] float positionYawFactor = 6.5f;
+
+
+    [Header("Control-throw Based")]
+    [SerializeField] float controlPitchFactor = -20f;
     [SerializeField] float controlRollFactor = -30f;
 
     float xThrow, yThrow;
-
-    // Use this for initialization
-    void Start () {
-		
-	}
-
-    private void OnTriggerEnter(Collider other)
-    {
-        print("Triggered with something");
-    }
 
     // Update is called once per frame
     void Update ()
@@ -49,8 +44,8 @@ public class Player : MonoBehaviour {
         yThrow = CrossPlatformInputManager.GetAxis("Vertical");
 
         // this value of m per sec * FPS should give value close to xSpeed of 4f m per sec
-        float xOffset = xThrow * speed * Time.deltaTime;
-        float yOffset = yThrow * speed * Time.deltaTime;
+        float xOffset = xThrow * controlSpeed * Time.deltaTime;
+        float yOffset = yThrow * controlSpeed * Time.deltaTime;
 
         float rawNewXPos = transform.localPosition.x + xOffset;
         float clampedNewXPos = Mathf.Clamp(rawNewXPos, -xRange, xRange);

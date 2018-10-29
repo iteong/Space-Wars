@@ -70,9 +70,10 @@ GameObject:
   - component: {fileID: 4134833825207722}
   - component: {fileID: 33016124214396740}
   - component: {fileID: 23513753692892610}
-  - component: {fileID: 114886175156780520}
   - component: {fileID: 65378341603964168}
   - component: {fileID: 54703994020955880}
+  - component: {fileID: 114886175156780520}
+  - component: {fileID: 114221994063401580}
   m_Layer: 0
   m_Name: Spaceship
   m_TagString: Untagged
@@ -309,6 +310,17 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114221994063401580
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1572548628721800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e045bf0760fb49f798ec61641515249, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114886175156780520
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -324,8 +336,8 @@ MonoBehaviour:
   xRange: 8
   yRange: 4.5
   positionPitchFactor: -5
-  controlPitchFactor: -20
   positionYawFactor: 6.5
+  controlPitchFactor: -20
   controlRollFactor: -30
 --- !u!198 &198329849348804306
 ParticleSystem:
