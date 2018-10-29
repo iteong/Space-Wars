@@ -21,12 +21,21 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] float controlRollFactor = -30f;
 
     float xThrow, yThrow;
+    bool isControlEnabled = true;
 
     // Update is called once per frame
     void Update ()
     {
-        ProcessTranslation();
-        ProcessRotation();
+        if (isControlEnabled) {
+            ProcessTranslation();
+            ProcessRotation();
+        }
+    }
+
+    void OnPlayerDeath() // called by string reference
+    {
+        print("Controls frozen");
+        isControlEnabled = false;
     }
 
     private void ProcessRotation()
