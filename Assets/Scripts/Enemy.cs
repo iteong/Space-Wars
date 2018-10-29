@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    [Tooltip("Fx prefab on player")] [SerializeField] GameObject deathFx;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -16,6 +18,7 @@ public class Enemy : MonoBehaviour {
 
     void OnParticleCollision(GameObject other) {
         print("Particles collided with enemy" + gameObject.name);
+        deathFx.SetActive(true);
         Destroy(gameObject);
     }
 }
